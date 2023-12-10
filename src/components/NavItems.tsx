@@ -39,6 +39,7 @@ const NavItems = () => {
           }
         };
 
+        const close = () => setActiveIndex(null);
         const isOpen = i === activeIndex;
 
         return (
