@@ -25,11 +25,11 @@ const Page = () => {
     resolver: zodResolver(AuthCredentialValidator),
   });
 
-  const { data } = trpc.anyApiRoute.useQuery();
-  console.log(data);
+  const { mutate, isLoading } = trpc.auth.createPayloadUser.useMutation({});
 
   const onSubmit = ({ email, password }: TAuthCredentialValidator) => {
     // send data to the server
+    mutate({ email, password });
   };
 
   return (
